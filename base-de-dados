@@ -21,6 +21,17 @@ A base de dados do diretório pessoal é projetada para armazenar informações 
 - **CommitsCount:** Número total de commits no repositório.
 - **UserID:** ID do usuário que é o proprietário do repositório.
 
+
+| Tabela       | Campos                      | Descrição                                                     |
+|--------------|-----------------------------|---------------------------------------------------------------|
+| Usuarios     | UserID, Nome, Email, DataCriacao | Armazena informações dos usuários.                           |
+| Repositorios | RepoID, Nome, Descricao, Linguagem, UltimaAtualizacao, CommitsCount, UserID | Armazena informações dos repositórios. |
+| Branches     | BranchID, Nome, RepoID      | Armazena informações dos branches de repositórios.           |
+| Commits      | CommitID, Mensagem, DataCommit, AutorID, BranchID | Armazena informações dos commits nos branches.         |
+| Issues       | IssueID, Titulo, Descricao, Estado, RepoID, AutorID, DataCriacao | Armazena informações das issues nos repositórios. |
+| Colaboradores | RepoID, UserID              | Tabela de associação entre usuários e repositórios.           |
+
+
 ### Tabela `Branches`
 
 - **BranchID:** Identificador único do branch.
