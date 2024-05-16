@@ -1,0 +1,62 @@
+# Descrição da Base de Dados do Diretório Pessoal
+
+## Estrutura da Base de Dados
+
+A base de dados do diretório pessoal é projetada para armazenar informações sobre usuários, repositórios, branches, commits e issues semelhante ao GitHub. Aqui está a estrutura da base de dados:
+
+### Tabela `Usuarios`
+
+- **UserID:** Identificador único do usuário.
+- **Nome:** Nome do usuário.
+- **Email:** Endereço de e-mail do usuário.
+- **DataCriacao:** Data e hora de criação do registro do usuário.
+
+### Tabela `Repositorios`
+
+- **RepoID:** Identificador único do repositório.
+- **Nome:** Nome do repositório.
+- **Descricao:** Descrição do repositório.
+- **Linguagem:** Linguagem de programação principal do repositório.
+- **UltimaAtualizacao:** Data e hora da última atualização do repositório.
+- **CommitsCount:** Número total de commits no repositório.
+- **UserID:** ID do usuário que é o proprietário do repositório.
+
+### Tabela `Branches`
+
+- **BranchID:** Identificador único do branch.
+- **Nome:** Nome do branch.
+- **RepoID:** ID do repositório ao qual o branch pertence.
+
+### Tabela `Commits`
+
+- **CommitID:** Identificador único do commit.
+- **Mensagem:** Mensagem descritiva do commit.
+- **DataCommit:** Data e hora do commit.
+- **AutorID:** ID do usuário que fez o commit.
+- **BranchID:** ID do branch ao qual o commit pertence.
+
+### Tabela `Issues`
+
+- **IssueID:** Identificador único da issue.
+- **Titulo:** Título da issue.
+- **Descricao:** Descrição detalhada da issue.
+- **Estado:** Estado atual da issue (Aberta ou Fechada).
+- **RepoID:** ID do repositório ao qual a issue está associada.
+- **AutorID:** ID do usuário que criou a issue.
+- **DataCriacao:** Data e hora de criação da issue.
+
+### Tabela `Colaboradores`
+
+- **RepoID:** ID do repositório.
+- **UserID:** ID do usuário colaborador.
+- **PRIMARY KEY (RepoID, UserID)**: Chave primária composta pelos IDs do repositório e do usuário.
+
+## Funcionalidades
+
+1. **Gestão de Usuários:** Registra informações básicas dos usuários, como nome, e-mail e data de criação.
+2. **Gestão de Repositórios:** Permite criar, visualizar e atualizar informações sobre repositórios, incluindo descrição, linguagem, e última atualização.
+3. **Gestão de Branches:** Possibilita criar e gerenciar branches em repositórios.
+4. **Controle de Commits:** Registra informações sobre commits, incluindo mensagem, data e autor.
+5. **Gestão de Issues:** Permite criar e acompanhar problemas relatados nos repositórios, com estado de aberta ou fechada.
+6. **Controle de Colaboradores:** Permite associar usuários como colaboradores em repositórios específicos.
+
